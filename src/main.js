@@ -1,4 +1,9 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
+import LandingPage from "@/components/LandingPage.vue";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.mount('#app');
+
+app.component('LandingPage', LandingPage);
