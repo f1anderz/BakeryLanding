@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 $back-color: #161E21;
+$back-color-transparent: rgba(22, 30, 33, .7);
 $image-text-color: #ffffff;
 $highlight-color: #fcba03;
 $font: 'Inter', sans-serif;
 $font-weights: ("light": 100, "regular": 300, "bold": 400);
 
-@function weight($font-weight){
+@function weight($font-weight) {
   @return map-get($font-weights, $font-weight);
 }

@@ -1,8 +1,10 @@
 <script>
 import {defineComponent} from "vue";
+import StatementList from "@/components/Statements/StatementList.vue";
 
 export default defineComponent({
-
+  name: "WhyUsBlock",
+  components: {StatementList}
 })
 </script>
 
@@ -10,6 +12,7 @@ export default defineComponent({
   <div class="why-us-block" id="why-us">
     <div class="why-us-container">
       <div class="why-us-title">Our <span class="highlighted">superiorities</span></div>
+      <StatementList class="why-us-statements"/>
     </div>
   </div>
 </template>
@@ -26,14 +29,13 @@ export default defineComponent({
   align-items: flex-start;
 
   .why-us-container {
-    width: 60%;
+    width: 75%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 10em;
+    gap: 3em;
     justify-content: center;
     align-items: flex-start;
-
 
     .why-us-title {
       color: $image-text-color;

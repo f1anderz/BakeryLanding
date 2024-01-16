@@ -1,5 +1,4 @@
 <script>
-
 import {defineComponent} from "vue";
 import ProductSlider from "@/components/Products/ProductSlider.vue";
 

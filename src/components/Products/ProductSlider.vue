@@ -8,43 +8,43 @@ export default {
     return {
       products: [
         {
-          id: 1,
+          id: 0,
           name: "Sourdough Symphony",
           description: "A classic sourdough with a crispy crust and a tangy, flavorful interior.",
           image: "sourdough_symphony"
         },
         {
-          id: 2,
+          id: 1,
           name: "Multigrain Melody",
           description: "A wholesome blend of various grains and seeds for a nutritious and hearty bread.",
           image: "multigrain_melody"
         },
         {
-          id: 3,
+          id: 2,
           name: "French Elegance Baguette",
           description: "A long, slender baguette with a golden crust and soft, airy inside – perfect for traditional French sandwiches.",
           image: "french_elegance_baguette"
         },
         {
-          id: 4,
+          id: 3,
           name: "Ciabatta Crescendo",
           description: "An Italian favorite with a rustic appearance, known for its light texture and open crumb.",
           image: "ciabatta_crescendo"
         },
         {
-          id: 5,
+          id: 4,
           name: "Cinnamon Swirl Sonata",
           description: "A sweet and aromatic bread, swirled with cinnamon and sugar, creating a delightful treat.",
           image: "cinnamon_swirl_sonata"
         },
         {
-          id: 6,
+          id: 5,
           name: "Olive Opera Loaf",
           description: "A savory creation featuring a medley of olives, bringing a burst of Mediterranean flavors.",
           image: "olive_opera_loaf"
         },
         {
-          id: 7,
+          id: 6,
           name: "Pumpernickel Pas de Deux",
           description: "A dark and rich German bread, made with rye flour and often enhanced with molasses or cocoa for a distinctive taste.",
           image: "pumpernickel_pas_de_deux"
