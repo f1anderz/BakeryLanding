@@ -29,7 +29,7 @@ export default defineComponent({
   align-items: flex-start;
 
   .why-us-container {
-    width: 75%;
+    width: 65%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -40,6 +40,7 @@ export default defineComponent({
     .why-us-title {
       color: $image-text-color;
       font-size: 2em;
+      margin-left: -1em;
       font-weight: weight(light);
     }
   }

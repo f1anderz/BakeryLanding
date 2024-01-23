@@ -24,11 +24,12 @@ export default {
   display: flex;
   flex-direction: column;
   background: $back-color-transparent;
-  border-radius: .5em;
+  border-radius: .1em;
   padding: .75em;
-  font-size: 140%;
-  width: 17.5em;
+  font-size: 1.2em;
+  width: 18em;
   height: 10em;
+  transition: transform .3s ease;
 
   .statement-name {
     color: $highlight-color;
@@ -39,6 +40,10 @@ export default {
   .statement-text {
     color: $image-text-color;
     font-weight: weight(light);
+  }
+
+  &:hover{
+    transform: scale(1.1);
   }
 }
 </style>

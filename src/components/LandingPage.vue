@@ -75,7 +75,7 @@ export default {
         display: flex;
         flex-direction: column;
         font-size: 1.25em;
-        font-weight: weight(bold);
+        font-weight: weight(regular);
         margin-top: .35em;
       }
 

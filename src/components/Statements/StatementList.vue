@@ -60,9 +60,9 @@ export default {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2.5em;
-  padding: 3em;
+  gap: 2em;
+  padding: 5em 3em;
   background: $back-color-transparent;
-  border-radius: 1em;
+  border-radius: .3em;
 }
 </style>

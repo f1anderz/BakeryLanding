@@ -128,6 +128,7 @@ export default {
     padding-left: 0;
     padding-right: 0;
     z-index: 2;
+    border-radius: .15em;
   }
 
   .arrows {
