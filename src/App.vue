@@ -18,6 +18,10 @@ export default {
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .highlighted {
   color: $highlight-color;
 }

@@ -1,11 +1,11 @@
 <script>
-import ProductSlider from "@/components/Products/ProductSlider.vue";
 import ProductsBlock from "@/components/ProductsBlock.vue";
 import WhyUsBlock from "@/components/WhyUsBlock.vue";
+import ContactsBlock from "@/components/ContactsBlock.vue";
 
 export default {
   name: "LandingPage",
-  components: {WhyUsBlock, ProductsBlock, ProductSlider}
+  components: {WhyUsBlock, ProductsBlock, ContactsBlock}
 };
 </script>
 
@@ -34,13 +34,13 @@ export default {
       </div>
     </div>
     <div class="products-block" id="products">
-      <ProductsBlock/>
+      <products-block/>
     </div>
     <div class="why-us-block" id="why-us">
       <why-us-block/>
     </div>
-    <div class="contact-block" id="contact">
-
+    <div class="contacts-block" id="contact">
+      <contacts-block/>
     </div>
   </div>
 </template>

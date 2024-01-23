@@ -22,25 +22,25 @@ export default defineComponent({
 
 .why-us-block {
   height: 100vh;
-  background-image: url(@/assets/img/crois.png);
+  background-image: url(@/assets/img/main-2.jpg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
 
   .why-us-container {
     width: 65%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 3em;
+    margin-right: 5em;
     justify-content: center;
     align-items: flex-start;
 
     .why-us-title {
       color: $image-text-color;
       font-size: 2em;
-      margin-left: -1em;
+      margin-left: auto;
       font-weight: weight(light);
     }
   }
