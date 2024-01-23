@@ -145,6 +145,12 @@ export default {
       width: 128px;
       height: 128px;
       margin-left: -128px;
+      opacity: .6;
+      transition: transform .3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     .next {

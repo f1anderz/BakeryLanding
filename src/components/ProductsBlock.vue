@@ -9,7 +9,7 @@ export default defineComponent({
 
 <template>
   <div class="products-block">
-    <div class="products-title">Check our bestsellers</div>
+    <div class="products-title">Check our <span class="highlight">bestsellers</span></div>
     <product-slider/>
   </div>
 </template>
@@ -30,6 +30,11 @@ export default defineComponent({
     color: $image-text-color;
     font-size: 3em;
     font-weight: weight(light);
+
+    .highlight {
+      color: $highlight-color;
+    }
   }
+
 }
 </style>

@@ -51,6 +51,7 @@ export default defineComponent({
 
   .map {
     display: block;
+    border-radius: .2em;
   }
 
   .social-media {
@@ -74,7 +75,7 @@ export default defineComponent({
 
         &:hover img {
           color: $image-text-color;
-          transform: scale(1.1);
+          transform: scale(1.15);
         }
 
         &:active {

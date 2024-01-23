@@ -11,14 +11,13 @@ export default {
 
 <template>
   <div class="wrapper">
-    <div class="main-block" id="main">
+    <div class="main-block">
       <div class="title-block"><img src="../assets/img/bread.png" alt="Logo" class="logo">
         <div class="title">
           <span>Broadway</span>
           <span class="highlighted">Boulangerie</span>
         </div>
         <div class="nav">
-          <a href="#main" class="link">Home</a>
           <a href="#products" class="link">Products</a>
           <a href="#why-us" class="link">Why Us</a>
           <a href="#contact" class="link">Contact</a>
@@ -92,9 +91,11 @@ export default {
           text-decoration: none;
           font-size: 1.2em;
           font-weight: weight(regular);
+          transition: transform .3s ease;
 
           &:hover {
             color: $highlight-color;
+            transform: scale(1.1);
           }
         }
       }
