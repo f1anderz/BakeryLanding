@@ -1,9 +1,11 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import LandingPage from "@/components/LandingPage.vue";
+import components from "@/components";
 
 const app = createApp(App);
 
 app.mount('#app');
 
-app.component('LandingPage', LandingPage);
+components.forEach(component => {
+    app.component(component.name, component);
+});
