@@ -110,6 +110,7 @@ export default defineComponent({
         margin-top: .8em;
         padding: .2em .3em;
         width: 73%;
+        border-radius: .1em;
         background: $back-color-transparent;
       }
     }

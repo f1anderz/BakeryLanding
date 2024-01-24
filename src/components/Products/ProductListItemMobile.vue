@@ -12,6 +12,9 @@ export default defineComponent({
   methods: {
     itemClick(event) {
       event.target.parentNode.children[0].classList.toggle('shadow-slide')
+    },
+    itemTextClick(event) {
+      event.target.parentNode.classList.toggle('shadow-slide')
     }
   }
 })
@@ -20,8 +23,8 @@ export default defineComponent({
 <template>
   <div class="product-list-item" @click="this.itemClick">
     <div class="shadow">
-      <div class="product-name">{{ this.product.name }}</div>
-      <div class="product-description">{{ this.product.description }}</div>
+      <div class="product-name" @click="this.itemTextClick">{{ this.product.name }}</div>
+      <div class="product-description" @click="this.itemTextClick">{{ this.product.description }}</div>
     </div>
     <img :src="require('@/assets/img/' + this.product.image + '.png')" :alt="this.product.name">
   </div>
@@ -37,6 +40,7 @@ export default defineComponent({
   img {
     width: 18em;
     height: 18em;
+    border-radius: .2em;
   }
 
   .shadow {
@@ -45,7 +49,7 @@ export default defineComponent({
     font-size: 1.1em;
     z-index: 2;
     height: 18em;
-    padding: 1em;
+    padding: .3em;
     margin-top: 18em;
     transition: margin-top .5s ease;
 
@@ -64,10 +68,10 @@ export default defineComponent({
   }
 
   .shadow-slide {
-    margin-top: 0;
+    margin-top: 9em;
 
     .product-name {
-      @extend .shadow-slide;
+      margin-top: 0;
     }
 
     .product-description {
