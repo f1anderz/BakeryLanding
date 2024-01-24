@@ -48,17 +48,16 @@ export default defineComponent({
     background: $back-color-transparent;
     font-size: 1.1em;
     z-index: 2;
-    height: 18em;
-    padding: .3em;
-    margin-top: 18em;
-    transition: margin-top .5s ease;
+    bottom: -8em;
+    padding: .3em .5em .5em .3em;
+    transition: bottom .7s ease;
 
     .product-name {
       color: $highlight-color;
       text-align: center;
-      transition: margin-top .7s ease;
-      margin-top: 5em;
       width: 100%;
+      transform: scale(1.3);
+      transition: transform .9s ease;
     }
 
     .product-description {
@@ -68,10 +67,10 @@ export default defineComponent({
   }
 
   .shadow-slide {
-    margin-top: 9em;
+    bottom: 0;
 
     .product-name {
-      margin-top: 0;
+      transform: scale(1);
     }
 
     .product-description {

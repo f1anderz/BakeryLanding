@@ -178,7 +178,7 @@ export default defineComponent({
     font-size: .8em;
 
     .map {
-      width: 360px;
+      width: 100%;
       height: 300px;
     }
 
