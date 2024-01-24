@@ -56,13 +56,59 @@ export default {
 
 .statement-list {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2.5em;
-  padding: 2em;
   background: $back-color-transparent;
-  border-radius: .3em;
+}
+
+@media (max-width: 1200px) {
+  .statement-list {
+    gap: 2.5em;
+    padding: 2em;
+    border-radius: .3em;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 1024px) {
+  .statement-list {
+    gap: 2.5em;
+    padding: 2em;
+    border-radius: .3em;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .statement-list {
+    gap: 2.5em;
+    padding: 2em;
+    border-radius: .3em;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .statement-list {
+    gap: .5em;
+    padding: 1em;
+    border-radius: .3em;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+  }
+}
+
+@media (min-width: 1201px) {
+  .statement-list {
+    gap: 2.5em;
+    padding: 2em;
+    border-radius: .3em;
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 </style>

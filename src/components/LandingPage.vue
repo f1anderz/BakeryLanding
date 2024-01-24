@@ -56,40 +56,26 @@ export default {
     color: $image-text-color;
 
     .title-block {
-      width: 70%;
-      margin: 0 auto;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
-      gap: .75em;
-      padding-top: 1em;
-
-      .logo {
-        width: 64px;
-        height: 64px;
-      }
 
       .title {
         display: flex;
         flex-direction: column;
-        font-size: 1.25em;
         font-weight: weight(regular);
-        margin-top: .35em;
       }
 
       .nav {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 2em;
-        margin-left: auto;
 
         .link {
           display: block;
           color: $image-text-color;
           text-decoration: none;
-          font-size: 1.2em;
           font-weight: weight(regular);
           transition: transform .3s ease;
 
@@ -105,21 +91,252 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 3em;
-      width: 60%;
-      margin: 0 auto;
-      font-size: 3em;
       font-weight: weight(light);
     }
 
     .description {
       display: flex;
       flex-direction: column;
-      font-size: 1.75em;
-      padding-top: 3em;
-      width: 50%;
-      margin: 0 auto;
       font-weight: weight(light);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+
+    .main-block {
+
+      .title-block {
+        width: 70%;
+        margin: 0 auto;
+        gap: .75em;
+        padding-top: 1em;
+
+        .logo {
+          width: 64px;
+          height: 64px;
+        }
+
+        .title {
+          font-size: 1.25em;
+          margin-top: .35em;
+        }
+
+        .nav {
+          gap: 2em;
+
+          .link {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .slogan {
+        padding-top: 3em;
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3em;
+      }
+
+      .description {
+        font-size: 1.75em;
+        padding-top: 3em;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+
+    .main-block {
+
+      .title-block {
+        width: 70%;
+        margin: 0 auto;
+        gap: .75em;
+        padding-top: 1em;
+
+        .logo {
+          width: 64px;
+          height: 64px;
+        }
+
+        .title {
+          font-size: 1.25em;
+          margin-top: .35em;
+        }
+
+        .nav {
+          gap: 2em;
+          margin-left: auto;
+
+          .link {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .slogan {
+        padding-top: 3em;
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3em;
+      }
+
+      .description {
+        font-size: 1.75em;
+        padding-top: 3em;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+
+    .main-block {
+
+      .title-block {
+        width: 70%;
+        margin: 0 auto;
+        gap: .75em;
+        padding-top: 1em;
+
+        .logo {
+          width: 64px;
+          height: 64px;
+        }
+
+        .title {
+          font-size: 1.25em;
+          margin-top: .35em;
+        }
+
+        .nav {
+          gap: 2em;
+          margin-left: auto;
+
+          .link {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .slogan {
+        padding-top: 3em;
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3em;
+      }
+
+      .description {
+        font-size: 1.75em;
+        padding-top: 3em;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+
+    .main-block {
+
+      .title-block {
+        width: 90%;
+        margin: 0 auto;
+        gap: .75em;
+        padding-top: .2em;
+
+        .logo {
+          width: 40px;
+          height: 40px;
+        }
+
+        .title {
+          font-size: .9em;
+          margin-top: .35em;
+        }
+
+        .nav {
+          gap: 1em;
+          margin-left: auto;
+
+          .link {
+            font-size: .8em;
+          }
+        }
+      }
+
+      .slogan {
+        padding-top: 5em;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1.75em;
+      }
+
+      .description {
+        font-size: 1.25em;
+        padding-top: 5em;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 1201px) {
+  .wrapper {
+
+    .main-block {
+
+      .title-block {
+        width: 70%;
+        margin: 0 auto;
+        gap: .75em;
+        padding-top: 1em;
+
+        .logo {
+          width: 64px;
+          height: 64px;
+        }
+
+        .title {
+          font-size: 1.25em;
+          margin-top: .35em;
+        }
+
+        .nav {
+          gap: 2em;
+          margin-left: auto;
+
+          .link {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .slogan {
+        padding-top: 3em;
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3em;
+      }
+
+      .description {
+        font-size: 1.75em;
+        padding-top: 3em;
+        width: 50%;
+        margin: 0 auto;
+      }
     }
   }
 }

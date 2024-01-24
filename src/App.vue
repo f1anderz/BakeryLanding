@@ -6,7 +6,6 @@ export default {
 
 <template>
   <landing-page/>
-
 </template>
 
 <style lang="scss">

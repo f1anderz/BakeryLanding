@@ -138,13 +138,14 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 400px;
+    height: 25em;
+    margin-top: -25em;
     z-index: 1;
 
     .back {
-      width: 128px;
-      height: 128px;
-      margin-left: -128px;
+      width: 8em;
+      height: 8em;
+      margin-left: -8em;
       opacity: .6;
       transition: transform .3s ease;
 
@@ -155,7 +156,7 @@ export default {
 
     .next {
       @extend .back;
-      margin-right: -128px;
+      margin-right: -8em;
     }
 
     &:hover {

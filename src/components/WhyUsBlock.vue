@@ -21,27 +21,116 @@ export default defineComponent({
 @import "@/assets/scss/variables";
 
 .why-us-block {
-  height: 100vh;
   background-image: url(@/assets/img/main-2.jpg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
 
   .why-us-container {
-    width: 65%;
     display: flex;
     flex-direction: column;
-    gap: 3em;
-    margin-right: 5em;
     justify-content: center;
-    align-items: flex-start;
 
     .why-us-title {
       color: $image-text-color;
-      font-size: 2em;
-      margin-left: auto;
       font-weight: weight(light);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .why-us-block {
+    height: 100vh;
+    align-items: flex-end;
+
+    .why-us-container {
+      width: 65%;
+      gap: 3em;
+      margin-right: 5em;
+      align-items: flex-start;
+
+      .why-us-title {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .why-us-block {
+    height: 100vh;
+    align-items: flex-end;
+
+    .why-us-container {
+      width: 65%;
+      gap: 3em;
+      margin-right: 5em;
+      align-items: flex-start;
+
+      .why-us-title {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .why-us-block {
+    height: 100vh;
+    align-items: flex-end;
+
+    .why-us-container {
+      width: 65%;
+      gap: 3em;
+      margin-right: 5em;
+      align-items: flex-start;
+
+      .why-us-title {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .why-us-block {
+    height: 135vh;
+    align-items: center;
+    justify-content: flex-start;
+
+    .why-us-container {
+      width: 90%;
+      align-items: center;
+      justify-content: flex-start;
+      margin-right: 0;
+      gap: .5em;
+
+      .why-us-title {
+        font-size: 1.2em;
+        margin-top: .8em;
+        padding: .2em .3em;
+        width: 73%;
+        background: $back-color-transparent;
+      }
+    }
+  }
+}
+
+@media (min-width: 1201px) {
+  .why-us-block {
+    height: 100vh;
+    align-items: flex-end;
+
+    .why-us-container {
+      width: 65%;
+      gap: 3em;
+      margin-right: 5em;
+      align-items: flex-start;
+
+      .why-us-title {
+        font-size: 2em;
+        margin-left: auto;
+      }
     }
   }
 }
