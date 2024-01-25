@@ -1,18 +1,64 @@
 <script>
-import {defineComponent} from "vue";
 import ProductSlider from "@/components/Products/ProductSlider.vue";
-import ProductListMobile from "@/components/Products/ProductListMobile.vue";
 
-export default defineComponent({
-  components: {ProductListMobile, ProductSlider}
-})
+export default {
+  components: {ProductSlider},
+  data() {
+    return {
+      products: [
+        {
+          id: 0,
+          name: "Sourdough Symphony",
+          description: "A classic sourdough with a crispy crust and a tangy, flavorful interior.",
+          image: "sourdough_symphony"
+        },
+        {
+          id: 1,
+          name: "Multigrain Melody",
+          description: "A wholesome blend of various grains and seeds for a nutritious and hearty bread.",
+          image: "multigrain_melody"
+        },
+        {
+          id: 2,
+          name: "French Elegance Baguette",
+          description: "A long, slender baguette with a golden crust and soft, airy inside – perfect for traditional French sandwiches.",
+          image: "french_elegance_baguette"
+        },
+        {
+          id: 3,
+          name: "Ciabatta Crescendo",
+          description: "An Italian favorite with a rustic appearance, known for its light texture and open crumb.",
+          image: "ciabatta_crescendo"
+        },
+        {
+          id: 4,
+          name: "Cinnamon Swirl Sonata",
+          description: "A sweet and aromatic bread, swirled with cinnamon and sugar, creating a delightful treat.",
+          image: "cinnamon_swirl_sonata"
+        },
+        {
+          id: 5,
+          name: "Olive Opera Loaf",
+          description: "A savory creation featuring a medley of olives, bringing a burst of Mediterranean flavors.",
+          image: "olive_opera_loaf"
+        },
+        {
+          id: 6,
+          name: "Pumpernickel Pas de Deux",
+          description: "A dark and rich German bread, made with rye flour and often enhanced with molasses or cocoa for a distinctive taste.",
+          image: "pumpernickel_pas_de_deux"
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <template>
   <div class="products-block">
-    <div class="products-title">Check our <span class="highlight">bestsellers</span></div>
-    <product-slider class="product-slider-container"/>
-    <product-list-mobile class="product-list-container"/>
+    <div class="products-block-title">Check our <span class="highlighted">bestsellers</span></div>
+    <product-slider class="products-block-slider" :products="this.products"/>
+    <!--    <product-list-mobile class="products-block-list" :products="this.products"/>-->
   </div>
 </template>
 
@@ -25,108 +71,25 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   background: $back-color;
+  @include breakpoint(xs) {
+    height: 90vh;
+    gap: 2em;
+  }
 
-  .products-title {
+  @include breakpoint(xxl) {
+    height: 100vh;
+    gap: 5em;
+  }
+
+  &-title {
     color: $image-text-color;
     font-weight: weight(light);
-
-    .highlight {
-      color: $highlight-color;
-    }
-  }
-}
-
-@media (max-width: 1200px) {
-  .products-block {
-    height: 100vh;
-    gap: 5em;
-
-    .products-title {
-      font-size: 3em;
-    }
-
-    .product-slider-container {
-      display: block;
-    }
-
-    .product-list-container {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-  .products-block {
-    height: 100vh;
-    gap: 5em;
-
-    .products-title {
-      font-size: 3em;
-    }
-
-    .product-slider-container {
-      display: block;
-    }
-
-    .product-list-container {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .products-block {
-    height: 100vh;
-    gap: 5em;
-
-    .products-title {
-      font-size: 3em;
-    }
-
-    .product-slider-container {
-      display: block;
-    }
-
-    .product-list-container {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .products-block {
-    height: 300vh;
-    gap: 2em;
-
-    .products-title {
+    @include breakpoint(xs) {
       font-size: 1.2em;
     }
 
-    .product-slider-container {
-      display: none;
-    }
-
-    .product-list-container {
-      display: block;
-    }
-  }
-}
-
-@media (min-width: 1201px) {
-  .products-block {
-    height: 100vh;
-    gap: 5em;
-
-    .products-title {
+    @include breakpoint(xxl) {
       font-size: 3em;
-    }
-
-    .product-slider-container {
-      display: block;
-    }
-
-    .product-list-container {
-      display: none;
     }
   }
 }

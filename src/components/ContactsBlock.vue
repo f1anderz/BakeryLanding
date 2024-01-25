@@ -1,9 +1,8 @@
 <script>
-import {defineComponent} from "vue";
 
-export default defineComponent({
+export default {
   name: "ContactsBlock",
-})
+}
 </script>
 
 <template>
@@ -15,22 +14,22 @@ export default defineComponent({
     <div class="social-media">
       <div class="icon">
         <a href="tel:+1 646-559-4851">
-          <img src="@/assets/img/phone-receiver-silhouette.png" alt="Phone">
+          <img src="@/assets/img/phone-receiver-silhouette.svg" alt="Phone">
           +1 646-559-4851</a>
       </div>
       <div class="icon">
         <a href="https://www.instagram.com" target="_blank">
-          <img src="@/assets/img/instagram.png" alt="Instagram">
+          <img src="@/assets/img/instagram.svg" alt="Instagram">
           @BroadwayBoulangerie</a>
       </div>
       <div class="icon">
         <a href="https://www.facebook.com" target="_blank">
-          <img src="@/assets/img/facebook-app-symbol.png" alt="Facebook">
+          <img src="@/assets/img/facebook-app-symbol.svg" alt="Facebook">
           BroadwayBoulangerie</a>
       </div>
       <div class="icon">
         <a href="https://twitter.com" target="_blank">
-          <img src="@/assets/img/twitter.png" alt="X">
+          <img src="@/assets/img/twitter.svg" alt="X">
           @BroadwayBoulangerie</a>
       </div>
     </div>
@@ -46,10 +45,29 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   background: $back-color;
+  @include breakpoint(xs) {
+    height: 75vh;
+    gap: 3em;
+    font-size: .8em;
+  }
+
+  @include breakpoint(xxl) {
+    height: 92vh;
+    gap: 5em;
+  }
 
   .map {
     display: block;
     border-radius: .2em;
+    @include breakpoint(xs) {
+      width: 100%;
+      height: 300px;
+    }
+
+    @include breakpoint(xxl) {
+      width: 1200px;
+      height: 620px;
+    }
   }
 
   .social-media {
@@ -57,6 +75,14 @@ export default defineComponent({
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    @include breakpoint(xs) {
+      gap: 4em;
+      flex-wrap: wrap;
+    }
+
+    @include breakpoint(xxl) {
+      gap: 20em;
+    }
 
     .icon {
       color: $image-text-color;
@@ -68,6 +94,13 @@ export default defineComponent({
         align-items: center;
         color: $image-text-color;
         text-decoration: none;
+        @include breakpoint(xs) {
+          gap: 1em;
+        }
+
+        @include breakpoint(xxl) {
+          gap: 1em;
+        }
 
         &:hover img {
           color: $image-text-color;
@@ -81,145 +114,12 @@ export default defineComponent({
         img {
           display: block;
           transition: transform .3s ease;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1200px) {
-  .contacts-block {
-    height: 92vh;
-    gap: 5em;
-
-    .map {
-      width: 1200px;
-      height: 620px;
-    }
-
-    .social-media {
-      gap: 20em;
-
-      .icon {
-
-        a {
-          gap: 1em;
-
-          img {
-            width: 32px;
-            height: 32px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-  .contacts-block {
-    height: 92vh;
-    gap: 5em;
-
-    .map {
-      width: 1200px;
-      height: 620px;
-    }
-
-    .social-media {
-      gap: 20em;
-
-      .icon {
-
-        a {
-          gap: 1em;
-
-          img {
-            width: 32px;
-            height: 32px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .contacts-block {
-    height: 92vh;
-    gap: 5em;
-
-    .map {
-      width: 1200px;
-      height: 620px;
-    }
-
-    .social-media {
-      gap: 20em;
-
-      .icon {
-
-        a {
-          gap: 1em;
-
-          img {
-            width: 32px;
-            height: 32px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .contacts-block {
-    height: 75vh;
-    gap: 3em;
-    font-size: .8em;
-
-    .map {
-      width: 100%;
-      height: 300px;
-    }
-
-    .social-media {
-      gap: 4em;
-      flex-wrap: wrap;
-
-      .icon {
-
-        a {
-          gap: 1em;
-
-          img {
+          @include breakpoint(xs) {
             width: 24px;
             height: 24px;
           }
-        }
-      }
-    }
-  }
-}
 
-@media (min-width: 1201px) {
-  .contacts-block {
-    height: 92vh;
-    gap: 5em;
-
-    .map {
-      width: 1200px;
-      height: 620px;
-    }
-
-    .social-media {
-      gap: 20em;
-
-      .icon {
-
-        a {
-          gap: 1em;
-
-          img {
+          @include breakpoint(xxl) {
             width: 32px;
             height: 32px;
           }

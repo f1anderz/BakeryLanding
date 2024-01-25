@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+$breakpoints: (
+        "xs": "max-width: 575.98px",
+        "s": "(min-width: 576px) and (max-width: 767.98px)",
+        "m": "(min-width: 768px) and (max-width: 991.98px)",
+        "l": "(min-width: 992px) and (max-width: 1199.98px)",
+        "xl": "(min-width: 1200px) and (max-width: 1399.98px)",
+        "xxl": "min-width: 1400px",
+);
+
 $back-color: #0f1211;
 $back-color-transparent: rgba(15, 18, 17, .7);
 $image-text-color: #ffffff;
@@ -10,3 +19,14 @@ $font-weights: ("light": 100, "regular": 300, "bold": 400);
 @function weight($font-weight) {
   @return map-get($font-weights, $font-weight);
 }
+
+@mixin breakpoint($user-value) {
+  $breakpoint: map-get($breakpoints, $user-value);
+  @if $breakpoint {
+    @media (#{$breakpoint}) {
+      @content;
+    }
+  } @else{
+    @error "Breakpoint #{$breakpoint} is not defined"
+  }
+};

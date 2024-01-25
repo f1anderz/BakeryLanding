@@ -6,162 +6,150 @@ export default {
   components: {ProductSlide},
   data() {
     return {
-      products: [
-        {
-          id: 0,
-          name: "Sourdough Symphony",
-          description: "A classic sourdough with a crispy crust and a tangy, flavorful interior.",
-          image: "sourdough_symphony"
-        },
-        {
-          id: 1,
-          name: "Multigrain Melody",
-          description: "A wholesome blend of various grains and seeds for a nutritious and hearty bread.",
-          image: "multigrain_melody"
-        },
-        {
-          id: 2,
-          name: "French Elegance Baguette",
-          description: "A long, slender baguette with a golden crust and soft, airy inside – perfect for traditional French sandwiches.",
-          image: "french_elegance_baguette"
-        },
-        {
-          id: 3,
-          name: "Ciabatta Crescendo",
-          description: "An Italian favorite with a rustic appearance, known for its light texture and open crumb.",
-          image: "ciabatta_crescendo"
-        },
-        {
-          id: 4,
-          name: "Cinnamon Swirl Sonata",
-          description: "A sweet and aromatic bread, swirled with cinnamon and sugar, creating a delightful treat.",
-          image: "cinnamon_swirl_sonata"
-        },
-        {
-          id: 5,
-          name: "Olive Opera Loaf",
-          description: "A savory creation featuring a medley of olives, bringing a burst of Mediterranean flavors.",
-          image: "olive_opera_loaf"
-        },
-        {
-          id: 6,
-          name: "Pumpernickel Pas de Deux",
-          description: "A dark and rich German bread, made with rye flour and often enhanced with molasses or cocoa for a distinctive taste.",
-          image: "pumpernickel_pas_de_deux"
-        }
-      ],
-      paddings: {
-        left: 0,
-        right: 0
-      }
+      slider: Object,
+      isMouseDown: false,
+      startXPosition: 0,
+      initialScrollLeft: 0,
+      isDragging: false,
+      positionDifference: 0
+    }
+  },
+  props: {
+    products: {
+      Type: Array,
+      required: true
     }
   },
   methods: {
-    handleClick(event) {
-      switch (event.target.classList[0]) {
+    arrowClick(event) {
+      let arrowDirection = event.target.classList[0].split('-')[3];
+      switch (arrowDirection) {
         case "back":
-          this.moveBack();
+          this.slider.scrollLeft -= event.pointerType === "mouse" ? 400 : 300;
           break;
-        case "next":
-          this.moveNext();
+        case "forward":
+          this.slider.scrollLeft += event.pointerType === "mouse" ? 400 : 300;
           break;
       }
     },
-    checkSet() {
-      let slider = document.querySelector('.product-slider');
-      slider.style.paddingRight = this.paddings.right + "px";
-      slider.style.paddingLeft = this.paddings.left + "px";
+    mouseDown(event) {
+      this.isMouseDown = true;
+      this.startXPosition = event.pageX || event.touches[0].pageX;
+      this.initialScrollLeft = this.slider.scrollLeft;
     },
-    moveBack() {
-      if (this.paddings.left < 1000) {
-        this.paddings.left += 400;
-        this.paddings.right -= 400;
-      } else if (this.paddings.left > 1000) {
-        this.paddings.left = 1400;
-        this.paddings.right = 0;
-      }
-      this.checkSet();
+    dragging(event) {
+      if (!this.isMouseDown) return;
+      event.preventDefault();
+      this.isDragging = true;
+      this.positionDifference = (event.pageX || event.touches[0].pageX) - this.startXPosition;
+      this.slider.scrollLeft = this.initialScrollLeft - this.positionDifference;
     },
-    moveNext() {
-      if (this.paddings.right < 1000) {
-        this.paddings.left -= 400;
-        this.paddings.right += 400;
-      } else if (this.paddings.right > 1000) {
-        this.paddings.right = 1400;
-        this.paddings.left = 0;
-      }
-      this.checkSet();
+    mouseUp() {
+      this.isDragging = false;
+      this.isMouseDown = false;
     }
+  },
+  mounted() {
+    this.slider = document.querySelector('.products-block-slider-content');
+    this.initialScrollLeft = window.screen.width < 576 ? 900 : 800;
+    this.slider.scrollLeft = this.initialScrollLeft;
+
+    this.slider.addEventListener("touchstart", this.mouseDown);
+
+    document.addEventListener("mousemove", this.dragging);
+    this.slider.addEventListener("touchmove", this.dragging);
+
+    document.addEventListener("mouseup", this.mouseUp);
+    this.slider.addEventListener("touchend", this.mouseUp);
   }
 };
 </script>
 
 <template>
-  <div class="product-slider-container">
-    <div class="product-slider">
+  <div class="products-block-slider">
+    <img @click="this.arrowClick" src="../../assets/img/back.svg" alt="Back"
+         class="products-block-slider-back">
+    <div class="products-block-slider-content" @mousedown="this.mouseDown"
+         @mouseleave="this.isMouseDown = false; this.isDragging=false;" :class="{dragging: isDragging}">
       <transition-group name="product-slider">
         <ProductSlide v-for="product in this.products" :key="product.id" :product="product"/>
       </transition-group>
     </div>
-    <div class="arrows">
-      <img @click="this.handleClick" src="../../assets/img/back.png" alt="Back" class="back">
-      <img @click="this.handleClick" src="../../assets/img/next.png" alt="Next" class="next">
-    </div>
+    <img @click="this.arrowClick" src="../../assets/img/back.svg" alt="Forward"
+         class="products-block-slider-forward">
   </div>
 </template>
 
 <style scoped lang="scss">
-.product-slider-container {
+@import "@/assets/scss/variables";
+
+.products-block-slider {
   display: flex;
   flex-direction: row;
-  position: relative;
-  width: 1400px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 
-  .product-slider {
+  @include breakpoint(xs) {
+    width: 23.75em;
+    gap: .5em;
+  }
+
+  @include breakpoint(xxl) {
+    width: 93em;
+    gap: 1em;
+  }
+
+  &-content {
     position: relative;
     display: flex;
     flex-direction: row;
-    transition: all 0.5s ease;
-    justify-content: center;
+    scroll-behavior: smooth;
     overflow: hidden;
-    padding-left: 0;
-    padding-right: 0;
-    z-index: 2;
     border-radius: .15em;
-  }
 
-  .arrows {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 25em;
-    margin-top: -25em;
-    z-index: 1;
-
-    .back {
-      width: 8em;
-      height: 8em;
-      margin-left: -8em;
-      opacity: .6;
-      transition: transform .3s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
+    @include breakpoint(xs) {
+      width: 18.75em;
     }
 
-    .next {
-      @extend .back;
-      margin-right: -8em;
+    @include breakpoint(xxl) {
+      width: 75em;
+    }
+  }
+
+
+  &-back, &-forward {
+    display: block;
+    opacity: .6;
+    transition: transform .3s ease;
+    @include breakpoint(xs) {
+      width: 2em;
+      height: 2em;
+    }
+    @include breakpoint(xxl) {
+      width: 8em;
+      height: 8em;
     }
 
     &:hover {
-      cursor: pointer;
+      transform: scale(1.1);
     }
   }
+
+  &-forward {
+    transform: rotate(180deg);
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
 }
 </style>
