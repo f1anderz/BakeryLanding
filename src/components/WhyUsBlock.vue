@@ -45,10 +45,8 @@ export default {
 
 <template>
   <div class="why-us-block" id="why-us">
-    <div class="why-us-container">
-      <div class="why-us-title">Our <span class="highlighted">superiorities</span></div>
-      <StatementList class="why-us-statements" :statements="this.statements"/>
-    </div>
+    <div class="why-us-block-title">Our <span class="highlighted">superiorities</span></div>
+    <StatementList class="why-us-block-statements" :statements="this.statements"/>
   </div>
 </template>
 
@@ -57,55 +55,106 @@ export default {
 
 .why-us-block {
   background-image: url(@/assets/img/main-2.webp);
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   @include breakpoint(xs) {
     height: 135vh;
     align-items: center;
+    justify-content: center;
+    margin-right: 0;
+    gap: .5em;
+  }
+
+  @include breakpoint(s) {
+    height: 135vh;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  @include breakpoint(m) {
+    height: 90vh;
+    gap: .7em;
+    align-items: center;
     justify-content: flex-start;
+  }
+
+  @include breakpoint(l) {
+    height: 100vh;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5em;
+    padding-right: 5em;
+  }
+
+  @include breakpoint(xl) {
+    height: 110vh;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3em;
+    padding-right: 5em;
   }
 
   @include breakpoint(xxl) {
     height: 100vh;
     align-items: flex-end;
+    justify-content: center;
+    gap: 3em;
+    padding-right: 5em;
   }
 
-  .why-us-container {
-    display: flex;
-    flex-direction: column;
+  @include breakpoint(xxxl) {
+    height: 100vh;
+    align-items: flex-end;
     justify-content: center;
+    gap: 3em;
+    padding-right: 5em;
+  }
+
+  &-title {
+    color: $image-text-color;
+    font-weight: weight(light);
+
     @include breakpoint(xs) {
-      width: 90%;
-      align-items: center;
-      justify-content: flex-start;
-      margin-right: 0;
-      gap: .5em;
+      font-size: 1.2em;
+      margin-top: .8em;
+      padding: .2em .5em;
+      border-radius: .1em;
+      background: $back-color-transparent;
+    }
+
+    @include breakpoint(s) {
+      font-size: 1.2em;
+      margin-top: .2em;
+      padding: .1em .5em;
+      border-radius: .1em;
+      background: $back-color-transparent;
+    }
+
+    @include breakpoint(m) {
+      font-size: 1.3em;
+      margin-top: 2em;
+      padding: .2em .5em;
+      border-radius: .1em;
+      background: $back-color-transparent;
+    }
+
+    @include breakpoint(l) {
+      font-size: 1.5em;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 2em;
     }
 
     @include breakpoint(xxl) {
-      width: 65%;
-      gap: 3em;
-      margin-right: 5em;
-      align-items: flex-start;
+      font-size: 2em;
     }
 
-    .why-us-title {
-      color: $image-text-color;
-      font-weight: weight(light);
-      @include breakpoint(xs) {
-        font-size: 1.2em;
-        margin-top: .8em;
-        padding: .2em .3em;
-        width: 73%;
-        border-radius: .1em;
-        background: $back-color-transparent;
-      }
-
-      @include breakpoint(xxl) {
-        font-size: 2em;
-        margin-left: auto;
-      }
+    @include breakpoint(xxxl) {
+      font-size: 5em;
     }
   }
 }

@@ -25,16 +25,53 @@ export default {
   flex-direction: column;
   background: $back-color-transparent;
   transition: transform .3s ease;
+
   @include breakpoint(xs) {
     padding: .75em;
     border-radius: .1em;
     font-size: .9em;
   }
 
-  @include breakpoint(xxl) {
-    border-radius: .1em;
+  @include breakpoint(s) {
     padding: .75em;
+    border-radius: .1em;
+    font-size: .8em;
+  }
+
+  @include breakpoint(m) {
+    padding: .75em;
+    border-radius: .1em;
+    font-size: 1.1em;
+  }
+
+  @include breakpoint(l) {
+    padding: .75em;
+    border-radius: .1em;
     font-size: 1.2em;
+    width: 22em;
+    height: 10em;
+  }
+
+  @include breakpoint(xl) {
+    padding: .75em;
+    border-radius: .1em;
+    font-size: 1.3em;
+    width: 18em;
+    height: 10em;
+  }
+
+  @include breakpoint(xxl) {
+    padding: .75em;
+    border-radius: .1em;
+    font-size: 1.2em;
+    width: 18em;
+    height: 10em;
+  }
+
+  @include breakpoint(xxxl) {
+    padding: .75em;
+    border-radius: .1em;
+    font-size: 2em;
     width: 18em;
     height: 10em;
   }
@@ -42,8 +79,21 @@ export default {
   &-name {
     color: $highlight-color;
     font-weight: weight(regular);
+
+    @include breakpoint(l) {
+      flex-basis: 1.5em;
+    }
+
+    @include breakpoint(xl) {
+      flex-basis: 2em;
+    }
+
     @include breakpoint(xxl) {
       flex-basis: 2em;
+    }
+
+    @include breakpoint(xxxl) {
+      flex-basis: 2.5em;
     }
   }
 
@@ -53,6 +103,12 @@ export default {
   }
 
   @include breakpoint(xxl) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @include breakpoint(xxxl) {
     &:hover {
       transform: scale(1.1);
     }

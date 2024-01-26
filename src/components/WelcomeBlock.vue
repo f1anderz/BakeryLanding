@@ -36,6 +36,7 @@ export default {
 .welcome-block {
   height: 100vh;
   background-image: url(@/assets/img/main_image.webp);
+  background-size: cover;
   color: $image-text-color;
 
   &-header {
@@ -43,17 +44,47 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    margin: 0 auto;
+
     @include breakpoint(xs) {
       width: 90%;
-      margin: 0 auto;
       gap: .75em;
       padding-top: .2em;
     }
 
+    @include breakpoint(s) {
+      width: 90%;
+      gap: .75em;
+      padding-top: .2em;
+    }
+
+    @include breakpoint(m) {
+      width: 85%;
+      gap: .75em;
+      padding-top: .75em;
+    }
+
+    @include breakpoint(l) {
+      width: 90%;
+      gap: .75em;
+      padding-top: .5em;
+    }
+
+    @include breakpoint(xl) {
+      width: 90%;
+      gap: .75em;
+      padding-top: .8em;
+    }
+
     @include breakpoint(xxl) {
       width: 70%;
-      margin: 0 auto;
       gap: .75em;
+      padding-top: 1em;
+    }
+
+    @include breakpoint(xxxl) {
+      width: 70%;
+      gap: 1em;
       padding-top: 1em;
     }
 
@@ -63,9 +94,34 @@ export default {
         height: 40px;
       }
 
+      @include breakpoint(s) {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include breakpoint(m) {
+        width: 48px;
+        height: 48px;
+      }
+
+      @include breakpoint(l) {
+        width: 52px;
+        height: 52px;
+      }
+
+      @include breakpoint(xl) {
+        width: 56px;
+        height: 56px;
+      }
+
       @include breakpoint(xxl) {
         width: 64px;
         height: 64px;
+      }
+
+      @include breakpoint(xxxl) {
+        width: 96px;
+        height: 96px;
       }
     }
 
@@ -73,14 +129,33 @@ export default {
       display: flex;
       flex-direction: column;
       font-weight: weight(regular);
+
       @include breakpoint(xs) {
         font-size: .9em;
-        margin-top: .35em;
+      }
+
+      @include breakpoint(s) {
+        font-size: .9em;
+      }
+
+      @include breakpoint(m) {
+        font-size: 1em;
+      }
+
+      @include breakpoint(l) {
+        font-size: 1.05em;
+      }
+
+      @include breakpoint(xl) {
+        font-size: 1.2em;
       }
 
       @include breakpoint(xxl) {
         font-size: 1.25em;
-        margin-top: .35em;
+      }
+
+      @include breakpoint(xxxl) {
+        font-size: 1.75em;
       }
     }
 
@@ -88,14 +163,34 @@ export default {
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-left: auto;
+
       @include breakpoint(xs) {
         gap: 1em;
-        margin-left: auto;
+      }
+
+      @include breakpoint(s) {
+        gap: 1em;
+      }
+
+      @include breakpoint(m) {
+        gap: 1.5em;
+      }
+
+      @include breakpoint(l) {
+        gap: 1.75em;
+      }
+
+      @include breakpoint(xl) {
+        gap: 2em;
       }
 
       @include breakpoint(xxl) {
         gap: 2em;
-        margin-left: auto;
+      }
+
+      @include breakpoint(xxxl) {
+        gap: 3em;
       }
 
       &-link {
@@ -104,17 +199,43 @@ export default {
         text-decoration: none;
         font-weight: weight(regular);
         transition: transform .3s ease;
+
         @include breakpoint(xs) {
           font-size: .8em;
         }
 
-        @include breakpoint(xxl) {
+        @include breakpoint(s) {
+          font-size: .8em;
+        }
+
+        @include breakpoint(m) {
+          font-size: 1em;
+        }
+
+        @include breakpoint(l) {
+          font-size: 1.1em;
+        }
+
+        @include breakpoint(xl) {
           font-size: 1.2em;
         }
 
-        &:hover {
-          color: $highlight-color;
-          transform: scale(1.1);
+        @include breakpoint(xxl) {
+          font-size: 1.2em;
+
+          &:hover {
+            color: $highlight-color;
+            transform: scale(1.1);
+          }
+        }
+
+        @include breakpoint(xxxl) {
+          font-size: 2em;
+
+          &:hover {
+            color: $highlight-color;
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -125,18 +246,48 @@ export default {
     flex-direction: column;
     justify-content: center;
     font-weight: weight(light);
+    margin: 0 auto;
+
     @include breakpoint(xs) {
       padding-top: 5em;
       width: 80%;
-      margin: 0 auto;
       font-size: 1.75em;
+    }
+
+    @include breakpoint(s) {
+      padding-top: 4em;
+      width: 75%;
+      font-size: 1.3em;
+    }
+
+    @include breakpoint(m) {
+      padding-top: 10em;
+      width: 80%;
+      font-size: 2em;
+    }
+
+    @include breakpoint(l) {
+      padding-top: 5em;
+      width: 80%;
+      font-size: 2em;
+    }
+
+    @include breakpoint(xl) {
+      padding-top: 6em;
+      width: 80%;
+      font-size: 2.7em;
     }
 
     @include breakpoint(xxl) {
       padding-top: 3em;
       width: 60%;
-      margin: 0 auto;
       font-size: 3em;
+    }
+
+    @include breakpoint(xxxl) {
+      padding-top: 3em;
+      width: 60%;
+      font-size: 5em;
     }
   }
 
@@ -144,18 +295,48 @@ export default {
     display: flex;
     flex-direction: column;
     font-weight: weight(light);
+    margin: 0 auto;
+
     @include breakpoint(xs) {
       font-size: 1.25em;
       padding-top: 5em;
       width: 90%;
-      margin: 0 auto;
+    }
+
+    @include breakpoint(s) {
+      font-size: 1.25em;
+      padding-top: 3em;
+      width: 65%;
+    }
+
+    @include breakpoint(m) {
+      font-size: 1.4em;
+      padding-top: 6em;
+      width: 70%;
+    }
+
+    @include breakpoint(l) {
+      font-size: 1.4em;
+      padding-top: 5em;
+      width: 70%;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 1.6em;
+      padding-top: 4em;
+      width: 60%;
     }
 
     @include breakpoint(xxl) {
       font-size: 1.75em;
       padding-top: 3em;
       width: 50%;
-      margin: 0 auto;
+    }
+
+    @include breakpoint(xxxl) {
+      font-size: 2.75em;
+      padding-top: 3em;
+      width: 50%;
     }
   }
 }

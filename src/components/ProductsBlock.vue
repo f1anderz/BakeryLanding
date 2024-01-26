@@ -70,9 +70,30 @@ export default {
   justify-content: center;
   align-items: center;
   background: $back-color;
+
   @include breakpoint(xs) {
     height: 90vh;
     gap: 2em;
+  }
+
+  @include breakpoint(s) {
+    height: 100vh;
+    gap: 1em;
+  }
+
+  @include breakpoint(m) {
+    height: 80vh;
+    gap: 3em;
+  }
+
+  @include breakpoint(l) {
+    height: 84vh;
+    gap: 3.5em;
+  }
+
+  @include breakpoint(xl) {
+    height: 75vh;
+    gap: 3em;
   }
 
   @include breakpoint(xxl) {
@@ -80,15 +101,41 @@ export default {
     gap: 5em;
   }
 
+  @include breakpoint(xxxl) {
+    height: 85vh;
+    gap: 5em;
+  }
+
   &-title {
     color: $image-text-color;
     font-weight: weight(light);
+
     @include breakpoint(xs) {
       font-size: 1.2em;
     }
 
+    @include breakpoint(s) {
+      font-size: 1.2em;
+    }
+
+    @include breakpoint(m) {
+      font-size: 1.7em;
+    }
+
+    @include breakpoint(l) {
+      font-size: 1.9em;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 3em;
+    }
+
     @include breakpoint(xxl) {
       font-size: 3em;
+    }
+
+    @include breakpoint(xxxl) {
+      font-size: 5em;
     }
   }
 }
