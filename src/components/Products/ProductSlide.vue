@@ -27,7 +27,7 @@ export default {
       <div class="product-slide-shadow-name" @click="this.handleShadowClick">{{ this.product.name }}</div>
       <div class="product-slide-shadow-description" @click="this.handleShadowClick">{{ this.product.description }}</div>
     </div>
-    <img :src="require('@/assets/img/' + this.product.image + '.png')" :alt="this.product.name">
+    <img :src="require('@/assets/img/' + this.product.image + '.webp')" :alt="this.product.name">
   </div>
 </template>
 

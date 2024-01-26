@@ -58,7 +58,6 @@ export default {
   <div class="products-block">
     <div class="products-block-title">Check our <span class="highlighted">bestsellers</span></div>
     <product-slider class="products-block-slider" :products="this.products"/>
-    <!--    <product-list-mobile class="products-block-list" :products="this.products"/>-->
   </div>
 </template>
 

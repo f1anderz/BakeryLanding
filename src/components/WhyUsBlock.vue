@@ -56,7 +56,7 @@ export default {
 @import "@/assets/scss/variables";
 
 .why-us-block {
-  background-image: url(@/assets/img/main-2.jpg);
+  background-image: url(@/assets/img/main-2.webp);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -35,7 +35,7 @@ export default {
 
 .welcome-block {
   height: 100vh;
-  background-image: url(@/assets/img/main_image.png);
+  background-image: url(@/assets/img/main_image.webp);
   color: $image-text-color;
 
   &-header {
