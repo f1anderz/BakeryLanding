@@ -11,7 +11,10 @@ export default {
       startXPosition: 0,
       initialScrollLeft: 0,
       isDragging: false,
-      positionDifference: 0
+      positionDifference: 0,
+      imageWidth: 0,
+      sliderWidth: 0,
+      maxScrollLeft: 0
     }
   },
   props: {
@@ -25,10 +28,11 @@ export default {
       let arrowDirection = event.target.classList[0].split('-')[3];
       switch (arrowDirection) {
         case "back":
-          this.slider.scrollLeft -= event.pointerType === "mouse" ? 400 : 300;
+          this.slider.scrollLeft -= this.imageWidth;
           break;
         case "forward":
-          this.slider.scrollLeft += event.pointerType === "mouse" ? 400 : 300;
+          if (this.slider.scrollLeft < this.maxScrollLeft)
+            this.slider.scrollLeft += this.imageWidth;
           break;
       }
     },
@@ -42,16 +46,74 @@ export default {
       event.preventDefault();
       this.isDragging = true;
       this.positionDifference = (event.pageX || event.touches[0].pageX) - this.startXPosition;
-      this.slider.scrollLeft = this.initialScrollLeft - this.positionDifference;
+      let newScrollLeft = this.initialScrollLeft - this.positionDifference;
+      if (newScrollLeft <= this.imageWidth * 7 - this.sliderWidth)
+        this.slider.scrollLeft = newScrollLeft;
     },
     mouseUp() {
       this.isDragging = false;
       this.isMouseDown = false;
+      setTimeout(() => this.autoScroll(), 5);
+    },
+    autoScroll() {
+      let scrollDifference = this.slider.scrollLeft % this.imageWidth;
+      if (scrollDifference !== 0) {
+        if (this.slider.scrollLeft > this.initialScrollLeft) {
+          if (scrollDifference - this.imageWidth / 2 < Math.round(this.imageWidth / 2)) {
+            this.slider.scrollLeft += this.imageWidth - scrollDifference;
+          } else {
+            this.slider.scrollLeft -= scrollDifference;
+          }
+        } else {
+          if (scrollDifference - this.imageWidth / 2 > Math.round(this.imageWidth / 2)) {
+            this.slider.scrollLeft += this.imageWidth - scrollDifference;
+          } else {
+            this.slider.scrollLeft -= scrollDifference;
+          }
+        }
+      }
     }
   },
   mounted() {
     this.slider = document.querySelector('.products-block-slider-content');
-    this.initialScrollLeft = window.screen.width < 576 ? 900 : 800;
+    switch (true) {
+      case window.innerWidth < 576:
+        this.imageWidth = 300;
+        this.sliderWidth = 300;
+        this.maxScrollLeft = 1800;
+        break;
+      case window.innerWidth >= 576 && window.innerWidth < 768:
+        this.imageWidth = 300;
+        this.sliderWidth = 300;
+        this.maxScrollLeft = 1800;
+        break;
+      case window.innerWidth >= 768 && window.innerWidth < 992:
+        this.imageWidth = 320;
+        this.sliderWidth = 640;
+        this.maxScrollLeft = 1600;
+        break;
+      case window.innerWidth >= 992 && window.innerWidth < 1200:
+        this.imageWidth = 400;
+        this.sliderWidth = 800;
+        this.maxScrollLeft = 2000;
+        break;
+      case window.innerWidth >= 1200 && window.innerWidth < 1400:
+        this.imageWidth = 400;
+        this.sliderWidth = 800;
+        this.maxScrollLeft = 2000;
+        break;
+      case window.innerWidth >= 1400 && window.innerWidth < 2560:
+        this.imageWidth = 400;
+        this.sliderWidth = 1200;
+        this.maxScrollLeft = 1201;
+        break;
+      case window.innerWidth >= 2560:
+        this.imageWidth = 800;
+        this.sliderWidth = 2400;
+        this.maxScrollLeft = 3201;
+        break;
+    }
+    this.initialScrollLeft = this.imageWidth * 3.5 - this.sliderWidth / 2;
     this.slider.scrollLeft = this.initialScrollLeft;
 
     this.slider.addEventListener("touchstart", this.mouseDown);
@@ -83,6 +145,10 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/variables";
 
+.test {
+  color: white;
+}
+
 .products-block-slider {
   display: flex;
   flex-direction: row;
@@ -95,7 +161,7 @@ export default {
   }
 
   @include breakpoint(s) {
-    width: 43.4em;
+    width: 24.15em;
     gap: .7em;
   }
 
@@ -110,7 +176,7 @@ export default {
   }
 
   @include breakpoint(xl) {
-    width: 80em;
+    width: 62em;
     gap: 1em;
   }
 
@@ -120,7 +186,7 @@ export default {
   }
 
   @include breakpoint(xxxl) {
-    width: 150em;
+    width: 184em;
     gap: 3em;
   }
 
@@ -137,7 +203,7 @@ export default {
     }
 
     @include breakpoint(s) {
-      width: 36em;
+      width: 18.75em;
     }
 
     @include breakpoint(m) {
@@ -149,7 +215,7 @@ export default {
     }
 
     @include breakpoint(xl) {
-      width: 68em;
+      width: 50em;
     }
 
     @include breakpoint(xxl) {
@@ -157,10 +223,9 @@ export default {
     }
 
     @include breakpoint(xxxl) {
-      width: 120em;
+      width: 150em;
     }
   }
-
 
   &-back, &-forward {
     display: block;
@@ -173,8 +238,8 @@ export default {
     }
 
     @include breakpoint(s) {
-      width: 3em;
-      height: 3em;
+      width: 2em;
+      height: 2em;
     }
 
     @include breakpoint(m) {
@@ -193,8 +258,8 @@ export default {
     }
 
     @include breakpoint(xxl) {
-      width: 8em;
-      height: 8em;
+      width: 9em;
+      height: 9em;
 
       &:hover {
         transform: scale(1.1);
@@ -212,11 +277,7 @@ export default {
   }
 
   &-forward {
-    transform: rotate(180deg);
-
-    &:hover {
-      transform: rotate(180deg);
-    }
+    rotate: 180deg;
   }
 
   @include breakpoint(xxl) {

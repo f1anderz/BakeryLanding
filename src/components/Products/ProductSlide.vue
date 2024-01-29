@@ -14,7 +14,6 @@ export default {
       event.target.children[0].classList.toggle('animation');
     },
     handleShadowClick(event) {
-      console.log(event.target)
       event.target.parentNode.classList.toggle('animation');
     }
   }
@@ -45,7 +44,7 @@ export default {
 
   @include breakpoint(s) {
     width: 18.75em;
-    height: 18.75em;
+    height: 15em;
   }
 
   @include breakpoint(m) {
@@ -69,8 +68,8 @@ export default {
   }
 
   @include breakpoint(xxxl) {
-    width: 40em;
-    height: 40em;
+    width: 50em;
+    height: 50em;
   }
 
   &-shadow {
@@ -110,7 +109,7 @@ export default {
     }
 
     @include breakpoint(xxxl) {
-      width: 40em;
+      width: 50em;
       bottom: -20em;
     }
 
@@ -234,8 +233,8 @@ export default {
     }
 
     @include breakpoint(xxxl) {
-      width: 40em;
-      height: 40em;
+      width: 50em;
+      height: 50em;
     }
   }
 
