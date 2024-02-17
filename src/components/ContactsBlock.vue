@@ -128,41 +128,12 @@ export default {
   &-social-media {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    @include breakpoint(xs) {
-      gap: 3em;
-      flex-wrap: wrap;
-    }
-
-    @include breakpoint(s) {
-      gap: 4em;
-      flex-wrap: wrap;
-    }
-
-    @include breakpoint(m) {
-      width: 95%;
-      gap: 3em;
-      flex-wrap: wrap;
-    }
-
-    @include breakpoint(l) {
-      gap: 4em;
-      flex-wrap: wrap;
-    }
-
-    @include breakpoint(xl) {
-      gap: 10em;
-    }
-
-    @include breakpoint(xxl) {
-      gap: 20em;
-    }
-
-    @include breakpoint(xxxl) {
-      gap: 8em;
-    }
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 90%;
+    margin: 0 auto;
 
     &-icon {
       color: $image-text-color;
